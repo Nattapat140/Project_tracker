@@ -266,7 +266,7 @@ with st.container(height=600):
             </div>
             """
             
-            st.html(project_html)
+            st.markdown(project_html, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # This Week's Tasks Section
@@ -279,4 +279,4 @@ week_tasks_html = ''.join([f"""
 </div>
 """ for task in data['weekTasks']])
 
-st.html(f'<div class="week-section">{week_tasks_html}</div>')
+st.markdown(f'<div class="week-section">{week_tasks_html}</div>', unsafe_allow_html=True)

@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import textwrap
 from datetime import datetime
 from pathlib import Path
 
@@ -213,7 +214,7 @@ with st.container(height=600):
             # Build the HTML for the project card
             tasks_html = ''.join([f'<div class="task-item"><span class="task-bullet">•</span><span>{task}</span></div>' for task in project['tasks']])
             
-            project_html = f"""
+            project_html = textwrap.dedent(f"""
             <div class="project-card">
                 <div class="project-name">{project['name']}</div>
                 <div class="project-status">{project['status']}</div>
@@ -221,7 +222,7 @@ with st.container(height=600):
                 <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
                 {tasks_html}
             </div>
-            """
+            """)
             
             st.markdown(project_html, unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -229,11 +230,11 @@ with st.container(height=600):
 # This Week's Tasks Section
 st.markdown('<div class="section-header">📅 This Week\'s Tasks</div>', unsafe_allow_html=True)
 
-week_tasks_html = ''.join([f"""
+week_tasks_html = ''.join([textwrap.dedent(f"""
 <div class="week-task-item">
     <span class="week-arrow">→</span>
     <span>{task}</span>
 </div>
-""" for task in data['weekTasks']])
+""") for task in data['weekTasks']])
 
 st.markdown(f'<div class="week-section">{week_tasks_html}</div>', unsafe_allow_html=True)

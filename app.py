@@ -177,56 +177,13 @@ st.markdown("""
 # Data file path
 DATA_FILE = Path(__file__).parent / "progress_data.json"
 
-# Default data structure
-DEFAULT_DATA = {
-    "lastUpdated": datetime.now().strftime("%Y-%m-%d"),
-    "projects": [
-        {
-            "name": "Website Redesign",
-            "status": "In Progress",
-            "tasks": [
-                "Complete homepage mockup",
-                "Implement responsive navigation",
-                "Add contact form validation"
-            ]
-        },
-        {
-            "name": "API Integration",
-            "status": "Planning",
-            "tasks": [
-                "Research API documentation",
-                "Set up authentication",
-                "Create data models"
-            ]
-        },
-        {
-            "name": "Database Migration",
-            "status": "Completed",
-            "tasks": [
-                "Backup existing data",
-                "Test migration scripts",
-                "Deploy to production"
-            ]
-        }
-    ],
-    "weekTasks": [
-        "Complete website homepage design",
-        "Review API documentation",
-        "Team meeting on Thursday",
-        "Prepare progress report for team leader",
-        "Test new features on staging environment"
-    ]
-}
-
 # Load data from file
 def load_data():
     if DATA_FILE.exists():
         with open(DATA_FILE, 'r') as f:
             return json.load(f)
     else:
-        # Create default data file
-        save_data(DEFAULT_DATA)
-        return DEFAULT_DATA
+        pass
 
 # Save data to file
 def save_data(data):

@@ -99,8 +99,6 @@ st.markdown("""
         border-radius: 20px;
         font-size: 0.875rem;
         font-weight: 600;
-        background: linear-gradient(135deg, #8A9D85, #B87C4C);
-        color: white;
         margin-bottom: 1rem;
     }
     
@@ -214,10 +212,22 @@ with st.container(height=600):
             # Build the HTML for the project card
             tasks_html = ''.join([f'<div class="task-item"><span class="task-bullet">•</span><span>{task}</span></div>' for task in project['tasks']])
             
+            # Status color mapping
+            status_colors = {
+                "Deploy / In Progress": "#6CA651",
+                "Planning": "#FAB95B",
+                "Completed": "#8A9D85",
+                "In Progress": "#B87C4C",
+                "Research / Planning": "#C4A484"
+            }
+            
+            # Get color or default
+            status_color = status_colors.get(project['status'], "#8A9D85")
+            
             project_html = textwrap.dedent(f"""
             <div class="project-card">
                 <div class="project-name">{project['name']}</div>
-                <div class="project-status">{project['status']}</div>
+                <div class="project-status" style="background-color: {status_color}; color: white;">{project['status']}</div>
                 
                 <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
                 {tasks_html}

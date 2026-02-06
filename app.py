@@ -80,29 +80,9 @@ st.markdown("""
         border-color: #8A9D85;
     }
     
-    /* Scrollable container for project cards */
+    /* Container for project cards */
     .projects-container {
-        max-height: 600px;
-        overflow-y: auto;
         padding-right: 0.5rem;
-    }
-    
-    .projects-container::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    .projects-container::-webkit-scrollbar-track {
-        background: rgba(168, 187, 163, 0.1);
-        border-radius: 10px;
-    }
-    
-    .projects-container::-webkit-scrollbar-thumb {
-        background: rgba(138, 157, 133, 0.5);
-        border-radius: 10px;
-    }
-    
-    .projects-container::-webkit-scrollbar-thumb:hover {
-        background: rgba(138, 157, 133, 0.7);
     }
     
     .project-name {
@@ -128,18 +108,6 @@ st.markdown("""
         color: #6b5d4f;
         margin-bottom: 0.5rem;
         font-weight: 600;
-    }
-    
-    .version-tag {
-        display: inline-block;
-        background: rgba(184, 124, 76, 0.2);
-        color: #B87C4C;
-        padding: 0.25rem 0.75rem;
-        border-radius: 12px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
     }
     
     .task-item {
@@ -216,7 +184,6 @@ DEFAULT_DATA = {
         {
             "name": "Website Redesign",
             "status": "In Progress",
-            "versions": ["v1.0", "v2.0"],
             "tasks": [
                 "Complete homepage mockup",
                 "Implement responsive navigation",
@@ -226,7 +193,6 @@ DEFAULT_DATA = {
         {
             "name": "API Integration",
             "status": "Planning",
-            "versions": ["v1.0"],
             "tasks": [
                 "Research API documentation",
                 "Set up authentication",
@@ -236,7 +202,6 @@ DEFAULT_DATA = {
         {
             "name": "Database Migration",
             "status": "Completed",
-            "versions": ["v1.0", "v1.1", "v2.0"],
             "tasks": [
                 "Backup existing data",
                 "Test migration scripts",
@@ -283,25 +248,26 @@ st.markdown("""
 st.markdown('<div class="section-header">📁 Projects</div>', unsafe_allow_html=True)
 
 # Display projects in columns with scrollable container
-st.markdown('<div class="projects-container">', unsafe_allow_html=True)
-cols = st.columns(3)
-for idx, project in enumerate(data['projects']):
-    with cols[idx % 3]:
-        # Build the HTML for the project card (without versions)
-        tasks_html = ''.join([f'<div class="task-item"><span class="task-bullet">•</span><span>{task}</span></div>' for task in project['tasks']])
-        
-        project_html = f"""
-        <div class="project-card">
-            <div class="project-name">{project['name']}</div>
-            <div class="project-status">{project['status']}</div>
+with st.container(height=600):
+    st.markdown('<div class="projects-container">', unsafe_allow_html=True)
+    cols = st.columns(3)
+    for idx, project in enumerate(data['projects']):
+        with cols[idx % 3]:
+            # Build the HTML for the project card
+            tasks_html = ''.join([f'<div class="task-item"><span class="task-bullet">•</span><span>{task}</span></div>' for task in project['tasks']])
             
-            <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
-            {tasks_html}
-        </div>
-        """
-        
-        st.html(project_html)
-st.markdown('</div>', unsafe_allow_html=True)
+            project_html = f"""
+            <div class="project-card">
+                <div class="project-name">{project['name']}</div>
+                <div class="project-status">{project['status']}</div>
+                
+                <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
+                {tasks_html}
+            </div>
+            """
+            
+            st.html(project_html)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # This Week's Tasks Section
 st.markdown('<div class="section-header">📅 This Week\'s Tasks</div>', unsafe_allow_html=True)

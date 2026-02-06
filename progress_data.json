@@ -4,7 +4,6 @@
         {
             "name": "Web-scraping",
             "status": "Deploy / In Progress",
-            "versions": [],
             "tasks": [
                 "Fix -> Some websites cannot be scraped"
             ]
@@ -12,7 +11,6 @@
         {
             "name": "Product Comparison",
             "status": "Deploy / In Progress",
-            "versions": [],
             "tasks": [
                 "Fix Inductance not found in db",
                 "Collect feedback from Javier (After Chinese New Year)",
@@ -22,7 +20,6 @@
         {
             "name": "Plane (Project Management)",
             "status": "Planning",
-            "versions": [],
             "tasks": [
                 "Build a comparison document about Plane vs Clickup, compare features",
                 "Talk with Simon about deploy on local server"
@@ -31,7 +28,6 @@
         {
             "name": "Inventree",
             "status": "Research / Planning",
-            "versions": [],
             "tasks": [
                 "Research on the features",
                 "Research on the local setup environment"
@@ -40,7 +36,6 @@
         {
             "name": "Others",
             "status": "Task",
-            "versions": [],
             "tasks": [
                 "Research on how to build webapp for multiple tools on local server"
             ]

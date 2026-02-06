@@ -226,11 +226,10 @@ with st.container(height=600):
             
             project_html = textwrap.dedent(f"""
             <div class="project-card">
-                <div class="project-name">{project['name']}</div>
-                <div class="project-status" style="background-color: {status_color}; color: white;">{project['status']}</div>
-                
-                <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
-                {tasks_html}
+            <div class="project-name">{project['name']}</div>
+            <div class="project-status" style="background-color: {status_color}; color: white;">{project['status']}</div>
+            <div class="section-label" style="margin-top: 1rem;">Tasks:</div>
+            {tasks_html}
             </div>
             """)
             
@@ -242,8 +241,8 @@ st.markdown('<div class="section-header">📅 This Week\'s Tasks</div>', unsafe_
 
 week_tasks_html = ''.join([textwrap.dedent(f"""
 <div class="week-task-item">
-    <span class="week-arrow">→</span>
-    <span>{task}</span>
+<span class="week-arrow">→</span>
+<span>{task}</span>
 </div>
 """) for task in data['weekTasks']])
 

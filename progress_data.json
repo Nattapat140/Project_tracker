@@ -1,0 +1,55 @@
+{
+    "lastUpdated": "2026-02-06",
+    "projects": [
+        {
+            "name": "Web-scraping",
+            "status": "Deploy / In Progress",
+            "versions": [],
+            "tasks": [
+                "Fix -> Some websites cannot be scraped"
+            ]
+        },
+        {
+            "name": "Product Comparison",
+            "status": "Deploy / In Progress",
+            "versions": [],
+            "tasks": [
+                "Fix Inductance not found in db",
+                "Collect feedback from Javier (After Chinese New Year)",
+                "Fix on the system does not return best match"
+            ]
+        },
+        {
+            "name": "Plane (Project Management)",
+            "status": "Planning",
+            "versions": [],
+            "tasks": [
+                "Build a comparison document about Plane vs Clickup, compare features",
+                "Talk with Simon about deploy on local server"
+            ]
+        },
+        {
+            "name": "Inventree",
+            "status": "Research / Planning",
+            "versions": [],
+            "tasks": [
+                "Research on the features",
+                "Research on the local setup environment"
+            ]
+        },
+        {
+            "name": "Others",
+            "status": "Task",
+            "versions": [],
+            "tasks": [
+                "Research on how to build webapp for multiple tools on local server"
+            ]
+        }
+    ],
+    "weekTasks": [
+        "[Web-scraping] : Fix -> Some websites cannot be scraped",
+        "[Product Comparison] : Fix Inductance not found in db, Fix on the system does not return best match",
+        "[Plane]: Build a comparison document about Plane vs Clickup, compare features",
+        "[Plane]: Talk with Simon about deploy on local server"
+    ]
+}
